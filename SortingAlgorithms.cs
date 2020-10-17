@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms_and_Datastructures
 {
-    public class Class1
+    public class SortingAlgorithms
     {
     }
 }
