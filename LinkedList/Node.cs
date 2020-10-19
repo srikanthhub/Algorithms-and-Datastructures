@@ -5,10 +5,10 @@
         public int info;
         public Node link;
 
-        public Node(int i)
+        public Node(Node i)
         {
-            info = i;
-            link = null;
+            info = i.info;
+            link = i.link;
         }
     }
 }

@@ -90,5 +90,109 @@ namespace Algorithms_and_Datastructures
 
         }
 
+        /// <summary>
+        /// This method inserts the new node after given element
+        /// </summary>
+        /// <param name="data">The node to insert</param>
+        /// <param name="element">insert after element </param>
+        public void InsertAfter(Node data, int element)
+        {
+            Node p = start;
+            while (p != null)
+            {
+                if (p.info == element)
+                    break;
+                p = p.link;
+            }
+
+            if (p == null)
+            {
+                Console.WriteLine(element + " Not present in the list");
+            }
+            else
+            {
+                Node newNode = new Node(data);
+                newNode.link = p.link;
+                p.link = newNode;
+            }
+        }
+
+        /// <summary>
+        /// This method inserts the new node before given element
+        /// </summary>
+        /// <param name="data">New node to insert</param>
+        /// <param name="element">insert before the element</param>
+        public void InsertBefore(Node data, int element)
+        {
+            Node p = start;
+            Node newNode;
+
+            if (start == null)
+            {
+                Console.WriteLine("The list is empty");
+                return;
+            }
+
+            // if the element is at first node then we need to insert the new node bofere the first node
+
+            if (element == start.info)
+            {
+                newNode = new Node(data);
+                newNode.link = start;
+                start = newNode;
+                return;
+            }
+            while (p.link != null)
+            {
+                if (p.link.info == element)
+                    break;
+                p = p.link;
+            }
+
+            if (p.link == null)
+            {
+                Console.WriteLine(element + " Not present in the list");
+            }
+            else
+            {
+                newNode = new Node(data);
+                newNode.link = p.link;
+                p.link = newNode;
+            }
+        }
+
+        public void InsertAtPosition(Node data, int position)
+        {
+            Node newNode;
+            int i;
+
+            if (position == 1)
+            {
+                newNode = new Node(data);
+                newNode.link = start;
+                start = newNode;
+                return;
+            }
+
+            Node p = start;
+
+            for (i = 1; i < position - 1 && p != null; i++ )
+            {
+                p = p.link;
+            }
+
+
+            if (p == null)
+            {
+                Console.WriteLine("You can only insert at posiytion " + i);
+                return;
+            }
+            else
+            {
+                newNode = new Node(data);
+                newNode.link = p.link;
+                p.link = newNode;
+            }
+        }
     }
 }
