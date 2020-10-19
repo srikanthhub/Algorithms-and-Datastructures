@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Node.cs" />
-    <Compile Include="SingleLinkedList.cs" />
-    <Compile Include="SortingAlgorithms.cs" />
+    <Compile Include="LinkedList\Node.cs" />
+    <Compile Include="LinkedList\SingleLinkedList.cs" />
+    <Compile Include="Sorting\SortingAlgorithms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
