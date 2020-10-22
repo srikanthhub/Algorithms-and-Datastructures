@@ -161,6 +161,11 @@ namespace Algorithms_and_Datastructures
             }
         }
 
+        /// <summary>
+        /// Insert a node at given position
+        /// </summary>
+        /// <param name="data">Node to insert</param>
+        /// <param name="position">position to insert</param>
         public void InsertAtPosition(Node data, int position)
         {
             Node newNode;
@@ -193,6 +198,87 @@ namespace Algorithms_and_Datastructures
                 newNode.link = p.link;
                 p.link = newNode;
             }
+        }
+
+        /// <summary>
+        /// Deletes the first node
+        /// </summary>
+        public void DeleteFirstNode()
+        {
+            if (start == null)
+            {
+                return;
+            }
+
+            start = start.link;
+        }
+
+        /// <summary>
+        /// Deletes the Last Node
+        /// </summary>
+        public void DeleteLastNode()
+        {
+            if (start == null)
+            {
+                return;
+            }
+
+            if (start.link == null)
+            {
+                start = null;
+                return;
+            }
+
+            Node tempNode = start;
+            while (tempNode.link.link != null)
+            {
+                tempNode = tempNode.link;
+                tempNode.link = null;
+            }
+        }
+
+        /// <summary>
+        /// Delete a Node at given position
+        /// </summary>
+        /// <param name="x"></param>
+        public void DeleteNode(int x)
+        {
+            if (start == null)
+            {
+                return;
+            }
+
+            //Delete first node
+
+            if(start.info==x)
+            {
+                start = start.link;
+                return;
+            }
+
+            //Deletion in between or at the end
+
+            Node p = start;
+            while (p.link != null)
+            {
+                if (p.link.info == x)
+                {
+                    break;
+                }
+
+                p = p.link;
+            }
+
+
+            if (p.link == null)
+            {
+                Console.WriteLine("Element not in the list);
+            }
+            else
+            {
+                p.link = p.link.link;
+            }
+
         }
     }
 }
